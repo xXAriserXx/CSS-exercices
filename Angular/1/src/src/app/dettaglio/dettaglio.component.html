@@ -1,0 +1,10 @@
+<section>
+    <h5>{{scarpa.nome}}</h5>
+    <p><strong>Taglia:</strong> {{scarpa.taglia}}</p>
+    <p><strong>Prezzo:</strong> {{scarpa.prezzo | currency:"EUR"}}</p>
+    <p><strong>Quantita':</strong> {{scarpa.quantita}}</p>
+    <p><strong>Colore':</strong> {{scarpa.colore}}</p>
+    <p><strong >Disponibile:</strong> {{scarpa.disponibile ? 'Si' : 'No'}}</p>
+    <button class="btn btn-primary rosso" (click)="cancella()">Rimuovi scarpa</button>
+    <button class="btn btn-primary indietro" (click)="indietro()">Indietro</button>
+</section>

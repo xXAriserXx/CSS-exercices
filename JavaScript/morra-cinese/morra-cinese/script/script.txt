@@ -1,0 +1,173 @@
+let bottone = document.getElementById("inizia")
+
+let foglia = document.getElementById("foglia")
+let forbice = document.getElementById("forbice")
+let sasso = document.getElementById("sasso")
+
+let fogliaCpu = document.getElementById("fogliaCpu")
+let forbiceCpu = document.getElementById("forbiceCpu")
+let sassoCpu = document.getElementById("sassoCpu")
+
+let vittorie = document.getElementById("punteggioYou")
+let sconfitte = document.getElementById("punteggioCpu")
+
+let counterVittorie = 0
+let counterSconfitte = 0
+
+let scelte = document.getElementById("scelta")
+
+let risultato = document.getElementById("risultato")
+
+window.addEventListener("DOMContentLoaded", function (){
+    fogliaCpu.classList.add("bigImgFoglia")
+    forbiceCpu.classList.add("bigImgForbice")
+    sassoCpu.classList.add("bigImgSasso")
+})
+
+bottone.onclick = function () {
+    scelte.style.display = "block"
+    bottone.style.opacity = 0;
+    document.querySelector("#scelta li:nth-of-type(1)").classList.add("li")
+    document.querySelector("#scelta li:nth-of-type(2)").classList.add("li")
+    document.querySelector("#scelta li:nth-of-type(3)").classList.add("li")
+    document.querySelector("#scelta li:nth-of-type(1)").style.display = "block"
+    document.querySelector("#scelta li:nth-of-type(2)").style.display = "block"
+    document.querySelector("#scelta li:nth-of-type(3)").style.display = "block"
+    foglia.classList.remove("bigImgFoglia")
+    forbice.classList.remove("bigImgForbice")
+    sasso.classList.remove("bigImgSasso")
+    document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+    document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+    document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+    risultato.classList = ""
+    risultato.style.display = "none"
+}
+
+
+foglia.onclick = function () {
+    let randomInt = Math.floor(Math.random() * 3)
+    document.querySelector("#scelta li:nth-of-type(1)").classList.remove("li")
+    document.querySelector("#scelta li:nth-of-type(2)").style.display = "none"
+    document.querySelector("#scelta li:nth-of-type(3)").style.display = "none"
+    foglia.classList.add("bigImgFoglia")
+    document.querySelector("#gioco #immaginiCpu").style.display = "inline"
+    risultato.style.display = "block";
+
+    if (randomInt == 0) {
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+        risultato.classList.add("patta")
+        risultato.innerHTML = "Che noia! Patta"
+    } else if (randomInt == 1) {
+        counterSconfitte++
+        sconfitte.innerHTML = counterSconfitte
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+        risultato.classList.add("persa")
+        risultato.innerHTML = "Fai schifo! Hai perso"
+    } else {
+        counterVittorie++
+        vittorie.innerHTML = counterVittorie
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+        risultato.classList.add("vinta")
+        risultato.innerHTML = "Sei un grande! Hai vinto"
+    }
+    bottone.style.opacity = 1;
+
+    if (counterVittorie == 10) {
+        document.getElementById("gioco").style.display = "none"
+    } else if (counterSconfitte == 10) {
+        document.getElementById("gioco").style.display = "none"
+    }
+}
+
+forbice.onclick = function () {
+    let randomInt = Math.floor(Math.random() * 3)
+    document.querySelector("#scelta li:nth-of-type(2)").classList.remove("li")
+    document.querySelector("#scelta li:nth-of-type(1)").style.display = "none"
+    document.querySelector("#scelta li:nth-of-type(3)").style.display = "none"
+    forbice.classList.add("bigImgForbice")
+    document.querySelector("#gioco #immaginiCpu").style.display = "inline"
+    risultato.style.display = "block";
+
+    if (randomInt == 0) {
+        counterVittorie++
+        vittorie.innerHTML = counterVittorie
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+        risultato.classList.add("vinta")
+        risultato.innerHTML = "Sei un grande! Hai vinto"
+    } else if (randomInt == 1) {
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+        risultato.classList.add("patta")
+        risultato.innerHTML = "Che noia! Patta"
+    } else {
+        counterSconfitte++
+        sconfitte.innerHTML = counterSconfitte
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+        risultato.classList.add("persa")
+        risultato.innerHTML = "Fai schifo! Hai perso"
+    }
+    bottone.style.opacity = 1;
+
+    if (counterVittorie == 10) {
+        document.getElementById("gioco").style.display = "none"
+    } else if (counterSconfitte == 10) {
+        document.getElementById("gioco").style.display = "none"
+    }
+}
+
+sasso.onclick = function () {
+    let randomInt = Math.floor(Math.random() * 3)
+    document.querySelector("#scelta li:nth-of-type(3)").classList.remove("li")
+    document.querySelector("#scelta li:nth-of-type(2)").style.display = "none"
+    document.querySelector("#scelta li:nth-of-type(1)").style.display = "none"
+    sasso.classList.add("bigImgSasso")
+    document.querySelector("#gioco #immaginiCpu").style.display = "inline"
+    risultato.style.display = "block";
+
+    if (randomInt == 0) {
+        counterSconfitte++
+        sconfitte.innerHTML = counterSconfitte
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+        risultato.classList.add("persa")
+        risultato.innerHTML = "Fai schifo! Hai perso"
+    } else if (randomInt == 1) {
+        counterVittorie++
+        vittorie.innerHTML = counterVittorie
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "none"
+        risultato.classList.add("vinta")
+        risultato.innerHTML = "Sei un grande! Hai vinto"
+    } else {
+        document.querySelector("#immaginiCpu li:nth-of-type(3)").style.display = "block"
+        document.querySelector("#immaginiCpu li:nth-of-type(2)").style.display = "none"
+        document.querySelector("#immaginiCpu li:nth-of-type(1)").style.display = "none"
+        risultato.classList.add("patta")
+        risultato.innerHTML = "Che noia! Patta"
+        
+    }
+    bottone.style.opacity = 1;
+
+    if (counterVittorie == 10) {
+        document.getElementById("gioco").style.display = "none"
+    } else if (counterSconfitte == 10) {
+        document.getElementById("gioco").style.display = "none"
+    }
+}
+
+
+
+

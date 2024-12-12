@@ -1,0 +1,192 @@
+class Giocatore {
+    constructor (nome, vite, armi) {
+        this.nome = nome; // Assegna il nome del giocatore
+        this.vite = vite; // Assegna il numero di vite
+        this.armi = armi || []; // Assegna le armi, se non specificate, imposta un array vuoto
+    }
+
+    #sangue // Proprietà privata per il gruppo sanguigno
+
+    get () {
+        return this.#sangue; // Restituisce il gruppo sanguigno
+    }
+
+    set (value) {
+        this.#sangue = value; // Imposta il gruppo sanguigno
+    }
+}
+
+const inizializza = document.querySelector("#buttons button"); // Bottone inizializza
+const piuVita = document.querySelector("#buttons button:nth-of-type(2)"); // Bottone per aggiungere vite
+const menoVita = document.querySelector("#buttons button:nth-of-type(3)"); // Bottone per rimuovere vite
+const cuorePiuVita = document.querySelector("#buttons button:nth-of-type(2) img"); // Immagine del bottone aggiungi vite
+const cuoreMenoVita = document.querySelector("#buttons button:nth-of-type(3) img"); // Immagine del bottone rimuovi vite
+const weapons = document.getElementById("Weapons"); // Sezione per le armi
+const info = document.getElementById("info"); // Sezione per le informazioni
+const giocatore1 = new Giocatore ("Pippo", undefined, undefined); // Crea un nuovo giocatore
+const nome = document.querySelector(".nome"); // Elemento per il nome del giocatore
+const vite = document.querySelector(".vite"); // Elemento per il numero di vite
+const gruppoSanguigno = document.querySelector(".gruppo-sanguigno"); // Elemento per il gruppo sanguigno
+giocatore1.set("AB+"); // Imposta il gruppo sanguigno del giocatore
+const messaggioErrore = document.getElementById("errore"); // Messaggio di errore
+let numeroViteIniziale = document.querySelector("input"); // Input per il numero iniziale di vite
+let numeroVite = 0; // Contatore per il numero di vite
+const nodeListImmagini = document.querySelectorAll("#container img"); // Seleziona tutte le immagini
+const containerInfo = document.getElementById("container-info"); // Contenitore per le informazioni delle armi
+const arrayImmagini = Array.from(nodeListImmagini); // Converte NodeList in array
+
+// Aggiunge un listener al bottone inizializza
+inizializza.addEventListener("click", () => {
+    errore(numeroViteIniziale.value); // Controlla errori sul numero di vite iniziali
+    let risultato = errore(numeroViteIniziale.value); // Salva il risultato della funzione errore
+
+    if (risultato !== "errore") {
+        giocatore1.vite = numeroViteIniziale.value; // Imposta il numero di vite del giocatore
+        nome.innerHTML = giocatore1.nome; // Mostra il nome del giocatore
+        vite.innerHTML = giocatore1.vite; // Mostra il numero di vite
+        gruppoSanguigno.innerHTML = `Il mio gruppo sanguigno e' ${giocatore1.get()}: posso darlo solo a AB+ ma ricevo da tutti`; // Mostra il gruppo sanguigno
+        numeroVite = numeroViteIniziale.value; // Aggiorna il contatore di vite
+        weapons.style.visibility = "visible"; // Rende visibile la sezione armi
+        info.style.visibility = "visible"; // Rende visibile la sezione informazioni
+        weapons.style.pointerEvents = "all"; // Abilita gli eventi del puntatore nella sezione armi
+    } 
+});
+
+// Aggiunge un listener al bottone per aggiungere vite
+piuVita.addEventListener("click", () => {
+    if (numeroVite == 50) { // Controlla se il numero massimo di vite è raggiunto
+        menoVita.disabled = false; // Abilita il bottone per rimuovere vite
+        piuVita.disabled = true; // Disabilita il bottone per aggiungere vite
+        cuorePiuVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile del bottone
+        cuoreMenoVita.style.filter = 'none'; // Ripristina lo stile dell'altro bottone
+        inizializza.style.filter = "opacity(20%)"; // Cambia opacita' del bottone inizializza
+        inizializza.disabled = true; // Disabilita il bottone inizializza
+        numeroViteIniziale.disabled = true; // Disabilita il campo di input per vite iniziali
+        messaggioErrore.style.display = "block"; // Mostra messaggio di errore
+    } else {
+        numeroVite++; // Incrementa il numero di vite
+        errore(numeroVite); // Controlla errori sul numero di vite
+        vite.innerHTML = numeroVite; // Aggiorna il numero di vite mostrato
+    }
+});
+
+// Aggiunge un listener al bottone per rimuovere vite
+menoVita.addEventListener("click", () => {
+    if (numeroVite == 1) { // Controlla se il numero di vite è 1
+        menoVita.disabled = true; // Disabilita il bottone per rimuovere vite
+        piuVita.disabled = false; // Abilita il bottone per aggiungere vite
+        cuorePiuVita.style.filter = 'none'; // Ripristina lo stile del bottone
+        cuoreMenoVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile del bottone
+        inizializza.style.filter = "opacity(20%)"; // Cambia opacita' del bottone inizializza
+        inizializza.disabled = true; // Disabilita il bottone inizializza
+        numeroViteIniziale.disabled = true; // Disabilita il campo di input per vite iniziali
+        messaggioErrore.style.display = "block"; // Mostra messaggio di errore
+    } else {
+        numeroVite--; // Decrementa il numero di vite
+        errore(numeroVite); // Controlla errori sul numero di vite
+        vite.innerHTML = numeroVite; // Aggiorna il numero di vite mostrato
+    }
+});
+
+// Funzione per gestire errori sul numero di vite
+function errore (value) {
+    if (value < 0) { // Controlla se il numero di vite è negativo
+        menoVita.disabled = true; // Disabilita i bottoni
+        piuVita.disabled = true;
+        cuoreMenoVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile
+        cuorePiuVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile
+        messaggioErrore.style.display = "block"; // Mostra messaggio di errore
+        inizializza.disabled = false; // Abilita il bottone inizializza
+        numeroViteIniziale.disabled = false; // Abilita il campo di input per vite iniziali
+        return "errore"; // Restituisce "errore"
+    } else if (value > 50) { // Controlla se il numero di vite supera 50
+        menoVita.disabled = true; // Disabilita i bottoni
+        piuVita.disabled = true;
+        cuorePiuVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile
+        cuoreMenoVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile
+        messaggioErrore.style.display = "block"; // Mostra messaggio di errore
+        inizializza.disabled = false; // Abilita il bottone inizializza
+        numeroViteIniziale.disabled = false; // Abilita il campo di input per vite iniziali
+        return "errore"; // Restituisce "errore"
+    } else if (value == 0) { // Controlla se il numero di vite è zero
+        menoVita.disabled = true; // Disabilita il bottone per rimuovere vite
+        piuVita.disabled = true; // Abilita il bottone per aggiungere vite
+        cuorePiuVita.style.filter = 'grayscale(100%) opacity(20%)'; // Ripristina lo stile
+        cuoreMenoVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile
+        messaggioErrore.style.display = "block"; // Mostra messaggio di errore
+        return "errore";
+    } else if (value == 51) { // Controlla se il numero di vite è 51
+        menoVita.disabled = false; // Abilita il bottone per rimuovere vite
+        piuVita.disabled = true; // Disabilita il bottone per aggiungere vite
+        cuorePiuVita.style.filter = 'grayscale(100%) opacity(20%)'; // Cambia lo stile
+        cuoreMenoVita.style.filter = 'none'; // Ripristina lo stile
+        inizializza.style.filter = "opacity(20%)"; // Cambia opacita' del bottone inizializza
+        inizializza.disabled = true; // Disabilita il bottone inizializza
+        numeroViteIniziale.disabled = true; // Disabilita il campo di input per vite iniziali
+    } else if (value === "") {
+        return "errore";
+    } else {
+        piuVita.disabled = false; // Abilita il bottone per aggiungere vite
+        menoVita.disabled = false; // Abilita il bottone per rimuovere vite
+        cuorePiuVita.style.filter = "none"; // Ripristina lo stile
+        cuoreMenoVita.style.filter = "none"; // Ripristina lo stile
+        messaggioErrore.style.display = "none"; // Nasconde il messaggio di errore
+        inizializza.disabled = true; // Disabilita il bottone inizializza
+        inizializza.style.filter = "opacity(20%)"; // Cambia opacita' del bottone inizializza
+        numeroViteIniziale.disabled = true; // Disabilita il campo di input per vite iniziali
+    }
+}
+
+// Aggiunge un listener a tutte le immagini per la selezione delle armi
+for (let immagine of arrayImmagini) {
+
+    immagine.addEventListener("load", () => { // Event listener che aggiunge le prime due armi
+
+        const armiScelte = arrayImmagini.filter(a => a.classList.contains("clicked")); // Filtra le armi selezionate
+        giocatore1.armi = armiScelte; // Assegna le armi scelte al giocatore
+        containerInfo.innerHTML = ''; // Pulisce il contenitore delle informazioni
+
+        for (arma of armiScelte) {
+            const armaScelta = document.createElement("img"); // Crea un nuovo elemento immagine
+            armaScelta.src = arma.src; // Imposta la sorgente dell'immagine
+            containerInfo.appendChild(armaScelta); // Aggiunge l'immagine al contenitore
+
+            // Aggiunge un listener all'immagine scelta per rimuoverla
+            armaScelta.addEventListener("click", () => {
+                const armaRitorno = arrayImmagini.filter(a => a.src.includes(armaScelta.src)); // Trova l'arma da rimuovere
+                armaRitorno.forEach(a => a.classList.remove("clicked")); // Rimuove la classe "clicked"
+                armaScelta.remove(); // Rimuove l'immagine dal contenitore
+            });
+        }
+    });
+
+    immagine.addEventListener("click", () => {
+        
+        immagine.classList.add("clicked"); // Aggiunge classe "clicked" all'immagine selezionata
+        const armiScelte = arrayImmagini.filter(a => a.classList.contains("clicked")); // Filtra le armi selezionate
+        giocatore1.armi = armiScelte; // Assegna le armi scelte al giocatore
+        containerInfo.innerHTML = ''; // Pulisce il contenitore delle informazioni
+
+        for (arma of armiScelte) {
+            const armaScelta = document.createElement("img"); // Crea un nuovo elemento immagine
+            armaScelta.src = arma.src; // Imposta la sorgente dell'immagine
+            containerInfo.appendChild(armaScelta); // Aggiunge l'immagine al contenitore
+
+            // Aggiunge un listener all'immagine scelta per rimuoverla
+            armaScelta.addEventListener("click", () => {
+                const armaRitorno = arrayImmagini.filter(a => a.src.includes(armaScelta.src)); // Trova l'arma da rimuovere
+                armaRitorno.forEach(a => a.classList.remove("clicked")); // Rimuove la classe "clicked"
+                armaScelta.remove(); // Rimuove l'immagine dal contenitore
+            });
+        }
+    });
+}
+
+
+
+
+
+
+
+
+

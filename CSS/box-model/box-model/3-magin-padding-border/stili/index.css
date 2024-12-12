@@ -1,0 +1,23 @@
+.box {
+    width: 440px;
+    height: auto;
+    background-color: beige;
+    margin: 10px 0 10px 35px;
+    padding: 25px;
+    border-top: dotted 10px black;
+    border-bottom: dotted 10px black;
+    box-sizing: border-box;
+}
+
+.box2 {
+    width: 300px;
+    height: auto;
+    text-align: center;
+    background-color: cadetblue;
+    margin: 15px;
+    padding: 10px 35px 10px 35px;
+    border-left: solid 5px orange;
+    border-top: solid 10px green;
+    border-right: solid 8px red;
+    box-sizing: border-box;
+}

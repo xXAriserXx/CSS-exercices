@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Audiowide', cursive;
+}
+
+body{
+    margin:0;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#gioco{
+    margin: 30px auto;
+    max-width: 440px;    
+    position: relative;
+}
+
+#gioco .bloccaGioco{
+    /*questa classe la aggiungo allo span che copre il tavolo da gioco*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    z-index: 1;
+}
+
+
+#gioco ul{
+    overflow: auto;
+    padding:0;
+    list-style: none;
+    margin: 0;
+}
+
+
+#gioco li{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border:solid 1px #aaa;
+    float: left;
+    border-radius:8px;
+    background-repeat: no-repeat;
+    background-position: center center;    
+    cursor: pointer;
+    background-color: #eee;
+    transition: .2s;
+}
+
+#gioco li:hover{
+    background-color: #fff;
+}
+
+
+#fine{
+    display: none;
+}
+
+#fine p{
+    font-size: 1.2em;
+}
+
+#fine p span{
+    color:#fb6975
+}
+
+#fine button{
+    font-size: 0.85em;
+    background-color: #fb6975;
+    color:#fff;
+    border:solid 2px #666;
+    border-radius:4px;
+    padding:8px 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#fine button:hover{
+    background-color: #ff4454;
+    border-color: #333;
+}

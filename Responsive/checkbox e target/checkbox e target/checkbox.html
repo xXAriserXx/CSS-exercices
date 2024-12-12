@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <link rel="stylesheet" href="css/checkbox.css">
+</head>
+<body>
+
+
+    <input type="checkbox" id="popup">
+    <a href="target.html" class="button">Target method</a>
+    <h2>Pure CSS popup (checkbox)</h2>
+    <label for="popup">Apri popup</label>
+
+
+    <div>
+        <h2 id="tipo">Checkbox method</h2>
+        <label for="popup"></label>
+        <video src="media/1.mp4" controls></video>
+    </div>
+
+
+
+</body>
+
+
+<script>
+    document.querySelector("div label").onclick = function () {
+        document.querySelector("video").pause();
+    }
+</script>
+</html>

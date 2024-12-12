@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<main>
+
+<div class="disponibile">
+<h2>Stanze disponibili</h2>
+<div class="table">
+    <div *ngFor="let stanza of stanze">
+        <div class="tableSection">
+          <p class="tipologia">Tipologia: {{stanza.tipologia}}</p>
+          <p class="descrizione">{{stanza.descrizione}}</p>
+          <p class="prezzo">{{stanza.prezzo | currency: "EUR"}}</p>
+          <button (click)="prenotaStanza(stanza, $event.target)">Disponibile</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="prenotato">
+<h2>Stanze Prenotate</h2>
+<div class="table">
+  <div *ngFor="let stanza of stanzePrenotate; let i = index">
+    <div class="tableSection" *ngIf="!stanza.disponibile">
+    <p class="tipologia">Tipologia: {{stanza.tipologia}}</p>
+    <p class="descrizione">{{stanza.descrizione}}</p>
+    <p class="prezzo">{{stanza.prezzo | currency: "EUR"}}</p>
+    <button (click)="rimuoviPrenotazione(stanza, i)">Rimuovi</button>
+    </div>
+  </div>
+</div>
+  <div class="ulteriore">
+    <h2 class="prezzoTot">Totale: {{tot_stanze_prenotate | currency:"EUR"}}</h2>
+    <button class="conferma" (click)="conferma()">Conferma Prenotazione</button>
+  </div>
+</div>
+
+<div class="alert" *ngIf="statoDiConferma">
+  <div>
+    <h2>Vuoi confermare la tua prenotazione?</h2>
+    <div *ngFor="let stanza of stanzePrenotate">
+      <p class="tipologia">Tipologia: {{stanza.tipologia}}</p>
+      <p class="descrizione">{{stanza.descrizione}}</p>
+      <p class="prezzo">{{stanza.prezzo | currency: "EUR"}}</p>
+    </div>
+      <p class="prezzoFinale">Totale: {{tot_stanze_prenotate | currency:"EUR"}}</p>
+      <div class="wrapperButtons">
+        <button class="conferma" (click)="confermaPrenotazione()">Conferma</button>
+        <button class="conferma" (click)="annullaPrenotazione()">Annulla</button>
+      </div>
+  </div>
+</div>
+
+</main>
+
+<router-outlet />
+
+<app-footer></app-footer>

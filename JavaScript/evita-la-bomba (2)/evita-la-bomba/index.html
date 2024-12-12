@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clicca ma...evita la bomba</title>
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="css/stile.css">
+        <script src="js/script.js" defer></script>
+    </head>
+    <body>
+        <h1>Clicca ma...evita la bomba</h1>
+
+        <div id="gioco">
+            
+            <ul></ul><!-- questo tag lo riempio aggiungendo, da javascript, una lista di 16 li-->
+            <span></span><!-- questo span lo uso per coprire l'area di gioco quando trovo la bomba e impedire di fare ulteriori click. Aggiungo su questo span la classe 'bloccaGioco'-->
+        </div>
+
+        <div id="fine">
+            <h2>Hai trovato la bomba!</h2>
+            <p>Dopo <span>8</span> click</p><!-- questo testo è un esempio ma deve essere gestito dinamicamente con JavaScript-->
+            <button id="new">Fai una nuova partita</button>
+        </div>
+        
+    </body>
+</html>

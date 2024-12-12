@@ -1,0 +1,10 @@
+<div id="oscura" (click)="chiudi()"></div>
+
+<div id="dettaglio">
+    <button (click)="chiudi()">X</button> 
+    <p>Nome: {{prodottoRichiesto.productName}}</p>
+    <p>Prezzo per unita': {{prodottoRichiesto.unitPrice | iva | currency: "EUR" }}</p>
+    <p>Quantita': {{prodottoRichiesto.quantity }}</p>
+    <p>Totale: {{total_Amount | iva | currency: "EUR"}}</p>
+    <p>Di cui iva: {{total_Amount | ivaTOT | currency: "EUR"}}</p>
+</div>

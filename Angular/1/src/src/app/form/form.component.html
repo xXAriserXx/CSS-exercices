@@ -1,0 +1,39 @@
+<form method="post" (submit)="mandaScarpa()">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" placeholder="Inserisci il nome" class="form-control" id="nome" name="nome" [(ngModel)]="nome">
+  </div>
+
+    <div>Scegli un colore</div>
+  <div  class="mb-3 container-colori">
+    <div *ngFor="let colore of colori">
+    <input type="radio" id="{{colore}}" value="{{colore}}" name="coloreScelto" [(ngModel)]="coloreScelto">
+    <label for="{{colore}}" class="palla {{colore}}"></label>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <select class="form-select" aria-label="Default select example" name="taglia" [(ngModel)]="taglia">
+      <option *ngFor="let taglia of taglie" value="{{taglia}}" >{{taglia}}</option>
+</select>
+  </div>
+
+  <div class="mb-3">
+    <label for="prezzo" class="form-label">Prezzo</label>
+    <input type="text" placeholder="Inserisci il prezzo" class="form-control" id="prezzo" name="prezzo" [(ngModel)]="prezzo">
+  </div>
+
+  <div class="mb-3">
+    <label for="quantita" class="form-label">Quantita'</label>
+    <input type="text" placeholder="Inserisci la quantita'" class="form-control" id="quantita" name="qunatita" [(ngModel)]="quantita">
+  </div>
+  <div class="mb-3">
+    <label for="foto" class="form-label">Immagine</label>
+    <input type="text" placeholder="Inserisci il percorso dell'immagine" class="form-control" id="foto" name="foto" [(ngModel)]="foto">
+  </div>
+
+  <button type="submit" class="btn btn-primary aggiungi">Aggiungi</button>
+  <button type="button" class="btn btn-primary indietro" (click)="indietro()">Indietro</button>
+
+  <div class="alert alert-danger" *ngIf="erroreForm" role="alert">Errore: controlla i dati</div>
+</form>

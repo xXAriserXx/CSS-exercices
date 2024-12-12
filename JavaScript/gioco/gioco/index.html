@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La carta più alta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/stile.css">
+    
+</head>
+<body>
+    <main>
+        <h1>Estrai la carta più alta</h1>
+
+        <section>
+
+            <div id="you" class="card">
+                <span>5</span>
+            </div>
+
+            <div id="cpu" class="card">
+                <span>3</span>
+            </div>
+
+        </section>
+
+        <button id="gioca">Gioca</button>
+
+    </main>
+        
+    <h2 id="messaggio">Complimenti, hai vinto!</h2>
+    <ul>
+        <li>Quante volte hai vinto: <span id="vittorie">0</span></li>
+        <li>Quante volte hai perso: <span id="sconfitte">0</span></li>
+        <li>Quante volte hai pareggiato <span id="pareggi">0</span></li>
+    </ul>
+    
+
+    <script src="script/gioco.js"></script>
+
+</body>
+</html>

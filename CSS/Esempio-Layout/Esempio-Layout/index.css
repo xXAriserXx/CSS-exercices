@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    height: 100%;
+}
+
+#title-section {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+#title-1 {
+    float: left;
+}
+
+#title-2 {  
+    margin-left: 50%;
+    }
+
+section {
+ width: 90%;
+ overflow: hidden;
+ margin: 0 auto;
+ margin-bottom: 7.5%;
+}
+
+img {
+    float: left;
+}
+
+.first-images {
+    width: 24%;
+    margin: 0.5%;
+}
+
+.who-img {
+    width: 43%;
+}
+
+.portfolio-img {
+    width: 100%;
+    float: none;
+}
+
+
+.text-box {
+    float: left;
+    width: 44%;
+    margin-left: 11.5%;
+}
+
+.portfolio-box {
+    width: 32%;
+    float: left;
+    margin: 0.5%;
+}
+
+.info-box {
+    float: left;
+    width: 21%;
+    margin: 0 5% 5% 5%;
+}
+
+#info-photo {
+    width: 34%
+}
+
+/*TESTO*/
+
+h1 {
+    font-size: 6.5em;
+}
+
+h2 {
+    font-size: 5.5em
+}
+
+.small-title {
+    margin-left: 5%;
+    margin-bottom: 2.5%;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.portfolio-box > .small-title {
+    margin-left: 0;
+    margin-top: 3.5%;
+    clear: both;
+}
+
+.big-text {
+    font-size: 3em;
+}
+
+.small-text {
+    font-size: 1.5em;
+    margin-top: 8%;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+.italic-p {
+    font-style: italic;
+    font-size: 1.5em;
+    margin-right: 2%;
+    margin-top: 5%;
+}
+
+.info-box > .small-text {
+    margin: 0 0 5% 0;
+}
+
+.info-box > .big-text {
+    margin-bottom: 19%;
+}
+
+.medium-small-text {
+    font-size: 1.25em;
+    margin-top: 1%;
+}

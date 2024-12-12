@@ -1,0 +1,97 @@
+
+fetch("http://localhost:3001/games")
+.then(response => response.json())
+.then(dati => {
+    const cards = dati.result;
+    const containerCard = document.querySelector(".row");
+    const containerInfo = document.querySelector(".modal");
+    let button;
+
+    for (let i = 0; i < cards.length; i++) {
+        let card = document.createElement("div");
+        card.innerHTML += 
+        `
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img src="${cards[i].image}" class="card-img-top" alt="${cards[i].name}" />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h2 class="card-title fs-5">${cards[i].name}</h2>
+              <h3 class="fs-6">${cards[i].publisher}</h3>
+
+              <p class="card-text">${cards[i].description}</p>
+              <p class="card-rating">${cards[i].rating}</p>
+              <p class="card-details">
+                <span class="badge text-bg-info">New</span>
+                <span class="badge text-bg-light">${cards[i].genre}</span>
+                <span class="badge text-bg-light">${cards[i].developer}</span>
+              </p>
+              <div class="btn btn-primary btn--view-more moreinfo" data-bs-toggle="modal" data-bs-target="#modale">View More details</div>
+            </div>
+          </div>
+        </div>   
+        `
+        containerCard.appendChild(card);
+
+    }
+
+    const infoButtons = document.querySelectorAll(".moreinfo")
+    for (let i = 0; i < infoButtons.length; i++) {
+
+
+        infoButtons[i].addEventListener("click", () => {
+        document.getElementById("modale").style.display = "block";
+        console.log("click");
+        containerInfo.innerHTML = 
+        `
+        <div class="modal-dialog d-flex align-items-center m-auto">
+        <div class="modal-content m-auto">
+            <div class="modal-header">
+            <h5 class="modal-title">Selected Game</h5>
+            </div>
+            <div class="modal-body p-0">
+            <div class="container-fluid">
+                <div class="row my-3">
+                <div class="col-2">
+                    <img src="${cards[i].image}" class="modal-img img-fluid" alt="..." />
+                </div>
+                <div class="col">
+                    <p class="modal-details">
+                    <span class="badge text-bg-info">New</span>
+                    <span class="modal-genre badge text-bg-light">${cards[i].genre}</span>
+                    <span class="modal-developer badge text-bg-light">${cards[i].developer}</span>
+                    </p>
+                    <div class="modal-body">
+                    <h2 class="modal-name fs-5">${cards[i].name}</h2>
+                    <h3 class="modal-publisher fs-6">${cards[i].publisher}</h3>
+
+                    <p class="modal-summary">${cards[i].summary}</p>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <button id="bottone" type="button" class="btn btn-secondary modal-close" data-bs-dismiss="modal">
+                Close
+                </button>
+            </div>
+            </div>
+        </div> 
+        `
+        })
+    }
+
+})
+.catch(
+
+)
+
+document.addEventListener("click", (event) => {
+    const bottone = event.target.closest("#bottone");
+    if (bottone) {
+        console.log("ciao");
+        document.getElementById("modale").style.display = "none";
+    }
+})

@@ -1,0 +1,111 @@
+const urlUS = `https://newsapi.org/v2/top-headlines?country=us&apiKey=456ed4d0ea6045ae925907493d081a36`; // URL per le notizie dagli Stati Uniti
+const urlIT = `https://newsapi.org/v2/top-headlines?sources=google-news-it&apiKey=456ed4d0ea6045ae925907493d081a36`; // URL per le notizie dall'Italia
+const urlFR = `https://newsapi.org/v2/top-headlines?sources=google-news-fr&apiKey=456ed4d0ea6045ae925907493d081a36`; // URL per le notizie dalla Francia
+let container = document.getElementById("containerArticles"); // Ottieni l'elemento HTML dove verranno mostrate le notizie
+let containerContent = ''; // Variabile per contenere il contenuto HTML delle notizie
+const xhr = new XMLHttpRequest(); // Crea una nuova richiesta HTTP
+let selectSection = document.getElementById("selState"); // Ottieni l'elemento HTML per la selezione della sezione (IT, US, FR)
+let selectNumber = document.getElementById("selNumber"); // Ottieni l'elemento HTML per selezionare il numero di notizie
+let rispostaObj; // Variabile per contenere la risposta JSON dall'API
+let selectSectionValue; // Variabile per memorizzare il valore della sezione selezionata
+
+
+selectSection.addEventListener("change", () => { // Aggiungi un listener per il cambio di sezione
+
+    selectNumber.disabled = false;
+    selectSectionValue = selectSection.value; // Memorizza il valore della sezione selezionata
+
+    if (selectSectionValue == "it") { // Se la sezione selezionata è "it" (Italia)
+        caricaNotizie(urlIT, "Vedi articolo"); // Carica le notizie italiane e imposta il testo del pulsante in italiano
+    } else if (selectSectionValue == "us") { // Se la sezione selezionata è "us" (Stati Uniti)
+        caricaNotizie(urlUS, "See article"); // Carica le notizie americane e imposta il testo del pulsante in inglese
+    } else if (selectSectionValue == "fr"){ // In caso contrario (sezione francese)
+        caricaNotizie(urlFR, "Baguette"); // Carica le notizie francesi e imposta il testo del pulsante (personalizzato)
+    } else {
+        container.innerHTML = ""; // Svuota il contenitore se non e' selezionato nessun paese
+    }
+ 
+})
+
+selectNumber.addEventListener("change", () => { // Aggiungi un listener per il cambio del numero di notizie
+
+    if (selectSectionValue == "it") { // Se la sezione selezionata è "it" (Italia)
+        selezionaNumeroNotizie(urlIT, "Vedi articolo"); // Seleziona e mostra il numero di notizie italiane
+    } else if (selectSectionValue == "us") { // Se la sezione selezionata è "us" (Stati Uniti)
+        caricaNotizie(urlUS, "See article"); // Carica le notizie americane
+    } else { // In caso contrario (sezione francese)
+        selezionaNumeroNotizie(urlFR, "Baguette"); // Seleziona e mostra il numero di notizie francesi
+    }
+
+})
+
+function caricaNotizie (url, linguaBottone) { // Funzione per caricare le notizie dall'URL specificato e impostare il testo del pulsante
+
+containerContent = '' // Svuota il contenuto del container
+xhr.onreadystatechange = () => { // Esegui questa funzione quando cambia lo stato della richiesta
+    if(xhr.readyState === 4 && xhr.status === 200) { // Se la richiesta è completata con successo
+        rispostaObj = JSON.parse(xhr.responseText); // Parso la risposta JSON e la memorizzo in rispostaObj
+        for (articolo of rispostaObj.articles) { // Itera attraverso gli articoli ricevuti
+            containerContent += 
+            `
+            <div class="card" style="width: 18rem;">
+                <img src="${articolo.urlToImage}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">${articolo.title}</p>
+                    <p class="card-text">${articolo.publishedAt.slice(0, 19)}</p>
+                    <a href="${articolo.url}" class="btn btn-primary">${linguaBottone}</a>
+                </div>
+            </div>
+            ` // Aggiungi il contenuto HTML per ogni articolo, inclusi immagine, titolo, data e pulsante
+        }
+        container.innerHTML = containerContent; // Imposta il contenuto HTML nel container
+        const cardImg = document.querySelectorAll(".card img"); // Seleziona tutte le immagini nelle card
+        for (let card of cardImg) { // Itera attraverso tutte le immagini
+            if(card.getAttribute("src") == "null") { // Se l'immagine non è disponibile (valore null)
+                card.setAttribute("src", "img-not-found.png") // Imposta un'immagine predefinita per l'immagine non trovata
+            }
+        }
+    }
+}
+    xhr.open("GET", url) // Invia una richiesta GET all'URL specificato
+    xhr.send(); // Invia la richiesta
+
+}
+
+function selezionaNumeroNotizie (url, linguaBottone) { // Funzione per selezionare e visualizzare un numero specifico di notizie
+
+    let selectNumberValue = selectNumber.value; // Ottieni il valore del numero selezionato
+    let contenutoCard = '' // Variabile per contenere il contenuto delle card
+
+    const array = rispostaObj.articles // Ottieni gli articoli dall'oggetto risposta
+
+    if (selectNumberValue == 0) {  // Controlla se il valore della variabile e' uguale a zero
+        container.innerHTML = ""; // Svuota il container
+    } else {
+
+    for (let i = 0; i < selectNumberValue; i++) { // Itera attraverso il numero selezionato di articoli
+
+        contenutoCard +=
+        `
+        <div class="card" style="width: 18rem;">
+            <img src="${array[i].urlToImage}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">${array[i].title}</p>
+                <p class="card-text">${array[i].publishedAt.slice(0, 19)}</p>
+                <a href="${array[i].url}" class="btn btn-primary">${linguaBottone}</a>
+            </div>
+        </div>
+        ` // Aggiungi il contenuto HTML per ogni articolo
+        container.innerHTML = contenutoCard; // Imposta il contenuto HTML nel container
+
+        const cardImg = document.querySelectorAll(".card img"); // Seleziona tutte le immagini nelle card
+
+        for (let card of cardImg) { // Itera attraverso tutte le immagini
+            if(card.getAttribute("src") == "null") { // Se l'immagine non è disponibile (valore null)
+                card.setAttribute("src", "img-not-found.png") // Imposta un'immagine predefinita per l'immagine non trovata
+            }
+        }
+    }
+    }
+
+}

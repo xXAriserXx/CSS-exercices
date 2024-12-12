@@ -1,0 +1,30 @@
+section {
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 18rem;
+    margin: 300px auto 0 auto;
+    button {
+        width: 10em;
+        margin-top: 20px;
+    }
+}
+
+.rosso {
+    background-color: rgb(237, 61, 61);
+    border: none;
+    &:hover {
+        background-color: rgb(200, 108, 108);
+    }
+}
+
+h5 {
+    text-align: center;
+}
+
+p {
+    margin: 0.5em;
+}

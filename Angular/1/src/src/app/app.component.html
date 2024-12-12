@@ -1,0 +1,29 @@
+<button class="btn btn-primary carica" *ngIf="bottoneCarica" (click)="caricaScarpe()">Carica scarpe</button>
+<button class="btn btn-primary carica" *ngIf="aggiungiAttivo" (click)="apriForm()">Aggiungi scarpa</button>
+
+<div class="container" *ngIf="scarpeAttivo">
+
+<div class="card" style="width: 18rem;" *ngFor="let scarpa of scarpe">
+    <h5 [ngClass]="{'disponibile': scarpa.disponibile, 'nonDisponibile': !scarpa.disponibile}" class="card-title" >{{scarpa.nome}}</h5>
+  <img class="card-img-top" src="immagini/{{scarpa.foto}}" alt="Card image cap">
+  <div class="card-body">
+    <a href="#" (click)="vediDettaglio(scarpa)" class="btn btn-primary">Dettagli</a>
+  </div>
+</div>
+
+</div>
+
+<app-form 
+*ngIf="form" 
+[arrayScarpe]="scarpe" 
+(addScarpaEvent)="aggiungiScarpa($event)"
+(indietroFormEvent)="indietro()"
+></app-form>
+
+<app-dettaglio 
+*ngIf="dettaglio" 
+[scarpa]="scarpaScelta" 
+(rimuoviScarpaEvent)="rimuoviScarpa(scarpaScelta)" 
+(indietroDetailEvent)="indietro()"
+></app-dettaglio>
+<router-outlet />

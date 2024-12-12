@@ -1,0 +1,5 @@
+L'esercizio consiste nel realizzare il codice html e css del layout che puoi visionare nei file qui accanto: layout_esempio.jpg oppure layout_esempio.pdf.
+
+Dovrai riprodurre la struttura del layout, cercando di renderlo elastico. nella cartella "immagini" trovi le foto. Nella cartella "testi" trovi il contenuto testuale da usare.
+
+Puoi usare uno o più font nativi o presi da google font, scegli tu quello che preferisci.

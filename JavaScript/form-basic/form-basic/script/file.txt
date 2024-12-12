@@ -1,0 +1,82 @@
+const card = document.getElementById("card");
+const nome = document.getElementById("nome");
+const email = document.getElementById("email");
+const tel = document.getElementById("tel");
+const privacy = document.getElementById("privacy");
+const form = document.querySelector("form");
+let nomeCard = document.querySelector("#card .nome");
+let emailCard = document.querySelector("#card .mail");
+let telCard = document.querySelector("#card .phone");
+const modulo = document.getElementById("modulo");
+const immagini = ["1.png", "2.png", "3.png", "4.png"];
+
+form.onsubmit = function (e) {
+    const checkName = controlloNome(nome.value);
+    const checkEmail = controlloEmail(email.value);
+    const checkTel = controlloTel(tel.value);
+    e.preventDefault();
+
+    if (!checkName && nome.value.trim() != 0) {
+        nome.nextElementSibling.innerHTML = "Il nome non è valido";
+        nome.classList.add("errore");
+    }  else {
+        obbligatorio(nome);
+    }
+    
+    if (!checkEmail && email.value.trim() != 0) {
+        email.nextElementSibling.innerHTML = "La mail non è valida";
+        email.classList.add("errore");
+    } else {
+        obbligatorio(email);
+    }
+    
+    if (!checkTel && tel.value.trim() !=0 ) {
+        tel.nextElementSibling.innerHTML = "Il numero non è valido";
+        tel.classList.add("errore");
+    } else {
+        obbligatorio(tel);
+    }
+
+    if (!privacy.checked) {
+        document.querySelector(".errorePrivacy").innerHTML = "è necessario accettare";
+    }
+
+    if (checkEmail && checkName && checkTel && privacy.checked) {
+        let randomInt = Math.floor(Math.random() * immagini.length);
+        card.style.display = "block";
+        nomeCard.innerHTML = nome.value.trim();
+        emailCard.innerHTML = email.value.trim();
+        telCard.innerHTML = tel.value.trim("");
+        modulo.style.display = "none";
+        document.querySelector("img").setAttribute("src", "immagini/" + immagini[randomInt]);
+    }
+}
+
+function controlloNome (nome) {
+    const regex = /^(?=.{3,})[a-zA-ZÀ-ÿ '-]+$/;
+    const risultatoNome = regex.test(nome);
+    return risultatoNome;
+}
+
+function controlloEmail (email) {
+    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const risultatoEmail = regex.test(email);
+    return risultatoEmail;
+}
+
+function controlloTel (tel) {
+    const regex = /^(?:(?:\+39|0039)?(?:0\d{5,10}|3\d{9}))$/;
+    const risultatoTel = regex.test(tel);
+    return risultatoTel;
+}
+
+function obbligatorio (scelta) {
+    const sceltaTrimmato = scelta.value.trim();
+    if (sceltaTrimmato == 0) {
+        scelta.nextElementSibling.innerHTML = scelta.getAttribute("data-msgErrore");
+        scelta.classList.add("errore");
+    } else {
+        scelta.nextElementSibling.innerHTML = "";
+        scelta.classList = "";
+    }
+}

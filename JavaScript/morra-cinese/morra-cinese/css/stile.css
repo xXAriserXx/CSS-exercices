@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;    
+}
+
+body{
+    text-align: center;
+    background:url(../immagini/muraglia_cinese.jpg) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4em;
+    text-align: center;
+    color: rgb(59, 59, 59);
+}
+
+button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #006200;    
+    color:#fff;
+    font-size: 1.6em;
+    padding: 10px 35px;
+    transition: .15s;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 15px;
+}
+
+button:hover{
+    background: #fff;
+    color:#006200;
+}
+
+#gioco{
+    max-width: 800px;
+    margin: 50px auto 0;
+    overflow: hidden;
+    position: relative;
+}
+
+
+#gioco #you{
+    padding-top: 1.5%;
+    border: solid 5px #006200;
+    width: 350px;
+    height: 390px;
+    float: left;
+    color:#006200;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 50px;
+    position: relative;
+    background-color:rgba(255,255,255,0.5);
+    border-radius: 5%;
+    background-color: #cbffcb;   
+}
+
+
+#gioco #punteggioYou{
+    position: absolute;
+    left:10px;
+    bottom:10px;
+    background:#006200;
+    color:#fff;
+    font-size:1.5em;
+    font-weight: bold;
+    line-height:40px;
+    width: 40px;
+    text-align: center;
+    border-radius:50%; 
+}
+
+
+
+
+#gioco #cpu{
+    padding-top: 1.5%;
+    border:solid 5px #a200b8;
+    width: 350px;
+    height: 390px;
+    float: right;
+    color:#a200b8;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 50px;
+    position: relative;
+    background-color:rgba(255,255,255,0.5);
+    border-radius: 5%;
+    background-color: #faddfe;
+}
+
+
+#gioco #punteggioCpu{
+    position: absolute;
+    right:10px;
+    bottom:10px;
+    background:#a200b8;
+    color:#fff;
+    font-size:1.5em;
+    font-weight: bold;
+    line-height:40px;
+    width: 40px;
+    text-align: center;
+    border-radius:50%;
+}
+
+#gioco span{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#gioco #scelta, #gioco #immaginiCpu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    display: none;
+}
+
+#gioco #scelta .li {
+    width: 150px;
+    height:150px;
+    margin: 10px;
+    background-color: #EEE;
+    border-radius:50%;
+    float:left;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    opacity: .8;
+    transition: background-color .4s;
+}
+
+#gioco #scelta li:hover {
+    opacity: 1;
+    background-color: #006200;
+}
+
+#gioco #scelta li:last-child {
+    float: none;
+    margin: 10px auto;
+}
+
+#gioco #scelta li img {
+    width: 70%;
+    position: absolute;
+    top:15px;
+    left:15%;
+}
+
+#gioco #immaginiCpu li img{
+    position: absolute;
+}
+
+
+#gioco #scelta li .bigImgFoglia, #gioco #immaginiCpu li .bigImgFoglia{
+    width: 50%;
+    left: 30%;
+    top: 55px;
+    display: block;
+}
+
+#gioco #scelta li .bigImgForbice, #gioco li .bigImgForbice{
+    width: 41%;
+    left: 30%;
+    top: 69px;
+    display: block;
+}
+
+#gioco #scelta li .bigImgSasso, #gioco li .bigImgSasso{
+    width: 45%;
+    left: 30%;
+    top: 137px;
+    display: block;
+}
+
+#gioco #cpu {
+    overflow: hidden;
+}
+
+
+#risultato{
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding: 15px;
+    font-size:2.5em;
+    font-weight: bold;
+    text-align: center;
+    background-color:#343434;
+    display: none;
+    border-radius: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#risultato{
+    line-height: 50px;
+}
+
+.patta{
+    color:#ffe600;
+    border: 5px solid #ffe600;
+}
+
+.persa{
+    color:#ff6161;
+    border: 5px solid #ff6161;
+}
+
+.vinta{
+    color:#93ff69;
+    border: 5px solid #93ff69;
+}

@@ -1,0 +1,26 @@
+
+<div class="wrap">
+<h2>I tuoi ordini</h2>
+
+
+<div class="container">
+@for (product of products; track product) {
+    <div class="prodotto">
+        <p>{{product.productName}}</p>
+        <button (click)="dettaglio(product.id)">Dettaglio</button>
+        <hr>
+        <p>Totale: {{product.total | iva | currency: "EUR"}}</p>
+    </div>
+
+}
+</div>
+
+<p>Prezzo totale: {{total_Amount | iva | currency:"EUR"}}</p> 
+<p>Di cui iva: {{total_Amount | ivaTOT | currency: "EUR"}}</p>
+</div>
+
+<app-dettaglio *ngIf="dettaglioAttivo" [prodottoId]="prodottoDettaglio" (chiudiEvent)="chiudi()"></app-dettaglio>
+
+
+
+

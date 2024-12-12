@@ -1,0 +1,26 @@
+#dettaglio {
+    position: fixed;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: fit-content;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 1;
+}
+
+#oscura {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.228);
+    z-index: 0;
+}
+
+
+

@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1em;
+    position: relative;
+}
+
+.button {
+    background-color: white;
+    border: 3px solid rgb(192, 192, 192);
+    color: rgb(213, 213, 213);
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 2em;
+    border-radius: 10px;
+    transition: 0.3s;
+    position: absolute;
+    top: 40px;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.button:hover {
+    background-color: rgb(244, 244, 244);
+    color: rgb(14, 146, 190);
+}
+
+h2 {
+    font-family: sans-serif;
+    color: rgb(14, 146, 190);
+    font-size: 2em;
+}
+
+#tipo {
+    display: none;
+    position: absolute;
+    top: -9vh;
+}
+
+body > a:nth-of-type(2) {
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 0.5em 1em;
+    border: 1px solid rgb(14, 146, 190);
+    color: black;
+    font-weight: lighter;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+body > a:nth-of-type(2) {
+    background-color: rgb(244, 244, 244);
+    color: rgb(14, 146, 190);
+}
+
+div a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+div {
+    width: 100%;
+    height: fit-content;
+    max-width: 640px;
+    background: black;
+    display: none;
+    z-index: 0;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+
+div label {
+    background-image: url(../media/multiply.png);
+    height: 32px;
+    width: 32px;
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 10px;
+}
+
+div:target {
+    display: flex;
+}
+
+div:target > label, div:target > #tipo {
+    display: block;
+}
+
+div:target ~ h2, div:target ~ a{
+    display: none;
+}
+
+

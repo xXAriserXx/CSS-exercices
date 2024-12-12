@@ -1,0 +1,95 @@
+*{
+    box-sizing:border-box;
+    font-family: 'Lobster Two', cursive;
+}
+
+body{
+    margin:0;
+    background: #376938;
+}
+
+h1{
+    margin: 0;
+    text-align: center;
+    color: #dced17;
+    font-size: 3em;
+}
+
+h2{
+    margin: 25px 0 0;
+    text-align: center;
+    color: #dced17;
+    font-size: 2em; 
+}
+
+ul {
+    margin: 0 auto;
+    width: 17vw;
+}
+
+li {
+    margin: 25px 0 0;
+    color: #dced17;
+    font-size: 2em; 
+}
+
+main{
+    max-width: 900px;
+    border: double 8px #dced17;
+    min-height: 500px;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+main section{
+    overflow: auto;
+    width: 600px;
+    margin: 20px auto 0;
+}
+
+
+.card{
+    width:240px;
+    height: 320px;
+    border:solid 3px #fff;
+    border-radius: 10px;
+    background: #ddd;
+    float:left;
+    margin: 30px;
+    position: relative;
+}
+
+.card span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    font-size: 10em;
+    line-height: 320px;
+    text-align: center;
+}
+
+
+#gioca{
+    display: block;
+    background: #dced17;
+    color:#222;
+    border:solid 3px #dced17;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 7px 15px;
+    display: block;
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    margin: 15px auto;
+    font-family: sans-serif;
+}
+
+#gioca:hover{
+    background: transparent;
+    color:#dced17;
+    border-radius: 5px;
+}

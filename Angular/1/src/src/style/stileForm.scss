@@ -1,0 +1,73 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 35em;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+    margin-top: 180px;
+    button {
+        width: 10em;
+        margin: 10px 10px 10px 0px;
+        align-self: flex-end;
+    }
+}
+
+.indietro {
+    background-color: gray;
+    border: none;
+    &:hover {
+        background-color: rgb(212, 211, 211);
+    }
+}
+
+.aggiungi {
+    background-color: rgb(74, 179, 153);
+    border-radius: 10px;
+    border: none;
+    &:hover {
+        background-color: rgb(60, 145, 124);
+    }
+}
+
+.palla {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.811);
+}
+
+.Nero {
+    background-color: rgb(74, 74, 74);
+}
+
+.Rosso {
+    background-color: rgb(255, 59, 59);
+}
+
+.Bianco {
+    background-color: rgb(243, 243, 243);
+}
+
+.Blu {
+    background-color: rgb(81, 81, 194);
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    width: 40px;
+    height: 40px;
+}
+
+.container-colori {
+    display: flex;
+    gap: 20px;
+}
+

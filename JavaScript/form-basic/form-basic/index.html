@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea la tua card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stili\stile.css">
+    <script src="script/file.js" defer></script>
+</head>
+<body>
+
+
+    
+    
+    <div id="modulo">
+        <h2>CREA LA TUA CARD</h2>
+
+        <form action="pagina.jsp" method="post">
+
+            <ul>
+                <li>
+                    <input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" data-msgErrore="Il nome è necessario">
+                    <span></span>
+                </li>
+                <li>
+                    <input type="text" name="email" id="email" placeholder="Email" autocomplete="off" data-msgErrore="La mail è necessaria">     
+                    <span></span>           
+                </li>
+                <li>
+                    <input type="text" name="tel" id="tel" placeholder="Telefono" autocomplete="off" data-msgErrore="Il numero di telefono è necessario">     
+                    <span></span>           
+                </li>                
+                <li>
+                    <input type="checkbox" name="privacy" id="privacy" >
+                    <label for="privacy">Accetto le condizioni di utilizzo...</label>
+                    <span class="errorePrivacy"></span>
+                </li>
+                <li>
+                    <button>INVIA I DATI</button>
+                </li>
+            </ul>
+
+        </form>
+
+    </div>
+
+    <div id="card">
+        <h2>Ecco la tua card</h2>
+        <img src="immagini/1.png">
+        <ul>
+            <li class="nome">Nome</span><span></span></li>
+            <li class="mail">Email<span></span></li>
+            <li class="phone">Telefono<span></span></li>
+        </ul>
+    </div>
+
+
+
+
+</body>
+</html>

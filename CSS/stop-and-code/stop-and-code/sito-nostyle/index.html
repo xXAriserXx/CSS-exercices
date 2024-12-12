@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Un template web con HTML e CSS</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<main>
+	<header>    
+        <div class="content">
+        
+            <div id="logo">
+                <img src="immagini/logo.png" />
+                <h1>HTML e CSS Template</h1>
+            </div>
+        
+            
+        </div> <!--chiusura class content -->
+    
+    </header> <!--chiusura dell'header-->
+
+    <nav>
+            
+        <ul>
+            <li><a href="#">L'HTML</a></li>
+            <li><a href="#">I CSS</a></li>
+            <li><a href="#">Creare un sito</a>
+                <ul>
+                    <li><a href="#">Template in HTML</a></li>
+                    <li><a href="#">Template HTML5</a></li>
+                    <li><a href="#">Template Responsive</a></li>
+                    <li><a href="#">Template per Worpress</a></li>
+                </ul>
+            </li>
+            <li><a href="#">News</a>
+                <ul>
+                    <li><a href="#">Front End Development</a></li>
+                    <li><a href="#">Back End Development</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contatti</a></li>
+        </ul>
+    
+    </nav>
+    
+    <section id="principale">
+        
+    	<div class="content">
+    
+            <div id="contenuto">
+        
+                <article class="articolo">
+                
+                    <h2>Il FRONT END DEVELOPER</h2>
+                    <img src="immagini/img1.jpg" class="imgSX" />            
+                    <p>
+                    Il Front End Developer crea l'interfaccia dei siti web, ovvero tutto ciò che interagisce con occhi e mani degli utenti: usabilità, accessibilità e user experience.</p>
+                <p>
+                Un bravo Front End Developer deve conoscere almeno l'HTML, i fogli di stile CSS e il linguaggio Javascript.</p>
+                <p>Con queste competenze è già possibile realizzare gran parte di quello che è visibile oggi in rete.</p>
+                <p>Nel 2004 il W3C, il Consorzio che stabilisce gli standard tecnici per il World Wide Web, ha lanciato le specifiche per l'HTML5, linguaggio che è letteralmente esploso con la nascita dei fogli di stile CSS3.</p>
+                <p>Con questi due nuovi strumenti il web designer può andare oltre i classici CSS e mettere in pratica la potenza dell'HTML5, moltiplicando incredibilmente le potenzialità di sviluppo delle pagine web.</p>
+                <p>Con il Responsive Web Design e la conoscenza di un framework javascript come Angular, il front end developer avrà un profilo completo e competitivo.</p>
+                            
+                </article> <!--chiusura dell'articolo-->
+        
+        
+                <article class="articolo">
+                
+                    <h2>Il BACK END DEVELOPER</h2>
+                        
+                    <img src="immagini/img2.jpg" class="imgDX" />    
+                    <p>Il Back End Developer si occupa della creazione di applicazioni Web lato server, necessarie alla generazione dei contenuti per il Web e alla gestione delle interazioni dell'utente con il web (acquisti in rete, registrazione di dati personali e login, invio di newsletter...).</p>
+                    <p>Il Back End Developer (o programmatore web) crea e/o contribuisce alla creazione di applicazioni web utilizzando linguaggi di programmazione server side: il suo lavoro inzia dove finisce quello del web designer.</p>
+                    <p>I linguaggi di programmazione sono tantissimi e spesso i fanatici del web si sfidano per dimostrare quale sia il migliore.</p>
+                    <p>LABFORWEB ha scelto JAVA e il database MySql perché sono molto richiesti nel mercato del lavoro.</p>
+                    <p>Oltre a JAVA, il web developer deve conoscere linguaggi come HTML, CSS e Javascript.</p>
+                </article> <!--chiusura dell'articolo-->    
+        </div> <!--chiusura #contenuto-->
+    
+
+            <aside id="correlati">
+                <h3>Notizie correlate</h3>
+                <ul>
+                    <li class="uno"><a href="#">HTML 5 e CSS3: le novità del Web Design</a></li>
+                    <li class="due"><a href="#">JAVA: il linguaggio di programmazione più famoso al mondo</a></li>
+                    <li class="tre"><a href="#">Javascript: programmare i tuoi siti web per il client</a></li>
+                    <li class="quattro"><a href="#">Responsive Template: i siti web e gli smartphone</a></li>
+                </ul>
+            </aside>
+
+	    </div> <!--chiusura .content-->
+
+    </section>
+
+
+    <section id="modulo">
+        <div class="content">
+            <h2>Richiedi informazioni</h2>
+            <h3>Vuoi saperne di più? Compila il modulo e ti contetteremo il prima possibile</h3>            
+            <form action="#" method="post">
+                <ul>
+                    <li class="uno">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="testo" required>
+                    </li>
+                        
+                    <li class="due">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="testo" required>
+                    </li>            
+            
+                    <li class="tre">
+                        <label for="testo">Messaggio</label>
+                        <textarea name="testo" id="testo"></textarea>
+                    </li>
+                        
+                    <li class="quattro">
+                        <input type="submit" value="richiedi informazioni" class="pulsante">
+                    </li>
+                    
+                </ul>
+                    
+            </form>
+        </div>
+    </section>
+
+
+
+
+</main> <!--chiusura main-->
+
+
+<footer>
+	<section class="content">
+        <ul>
+            <li>Questo sito è stato realizzato da ..., durante il corso HTML5 e CSS3 <a href="http://www.labforweb.it" target="_blank">LABFORWEB</a></li>
+            <li>&copy; Copyright 2024</li>
+       </ul>     
+   </section>
+</footer>
+
+</body>
+</html>

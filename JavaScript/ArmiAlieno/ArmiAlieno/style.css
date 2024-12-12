@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+#Main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 3em;
+  justify-content: center;
+  color: white;
+  padding: 3em;
+}
+
+#main {
+  background-color: #007EC0;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main #alieno {
+  border-radius: 15px;
+  width: 65%;
+  border: 3px solid white;
+}
+#main input {
+  height: 1.2em;
+  width: 13%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 15px;
+  text-align: center;
+  border: none;
+  font-size: 2em;
+}
+#main #buttons {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  position: relative;
+}
+#main #buttons #errore {
+  width: 100%;
+  position: absolute;
+  height: 70px;
+  background-color: rgb(222, 82, 82);
+  z-index: 2;
+  border-radius: 15px;
+  text-align: center;
+  display: none;
+  bottom: 180px;
+}
+#main #buttons #errore p {
+  color: white;
+}
+#main #buttons button {
+  height: 70px;
+  width: 70px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main #buttons button:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+}
+#main #buttons button:active {
+  border: transparent solid 2px;
+}
+#main #buttons button img {
+  width: 80%;
+  filter: grayscale(100%) opacity(20%);
+}
+#main #buttons button:nth-of-type(1) {
+  width: 140px;
+  background-color: red;
+}
+
+#Weapons {
+  background-color: #007EC0;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+#Weapons #container {
+  width: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px);
+  gap: 1em;
+  justify-content: center;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+#Weapons #container img {
+  width: 100%;
+  height: 100px;
+  border-radius: 15px;
+  border: 3px solid transparent;
+}
+#Weapons #container img:hover {
+  border: 3px solid rgb(255, 143, 143);
+}
+#Weapons #container .clicked {
+  display: none;
+}
+
+#info {
+  visibility: hidden;
+  width: 100%;
+  background-color: #C04200;
+  border-radius: 15px;
+}
+#info #container-testo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#info #container-testo .testo {
+  background-color: rgb(245, 169, 76);
+  height: 70px;
+  border-radius: 15px;
+  width: 45%;
+  text-align: center;
+}
+#info #container-testo .nome {
+  font-size: 2em;
+  line-height: 70px;
+}
+#info #container-testo .vite {
+  font-size: 2em;
+  line-height: 70px;
+}
+#info #container-testo .gruppo-sanguigno {
+  height: 100px;
+  padding: 3%;
+}
+#info #container-testo p {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+#info h2 {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+#info #container-info {
+  width: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px);
+  gap: 1em;
+  justify-content: center;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+#info #container-info img {
+  width: 100%;
+  height: 100px;
+  border-radius: 15px;
+  border: 3px solid transparent;
+}
+#info #container-info img:hover {
+  border: 3px solid rgb(255, 143, 143);
+}/*# sourceMappingURL=style.css.map */

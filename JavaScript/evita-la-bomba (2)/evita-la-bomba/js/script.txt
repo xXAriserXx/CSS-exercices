@@ -1,0 +1,49 @@
+document.addEventListener("DOMContentLoaded",function(){
+const ul = document.querySelector("#gioco ul")
+let randomInt;
+let span = document.querySelector("#gioco span")
+let fine = document.getElementById("fine")
+let clickCounter = 0;
+let clickCountercliccati = document.querySelector("#fine p span")
+let riavvio = document.querySelector("#fine button")
+
+
+for (let i = 1; i<=16; i++) {
+   ul.innerHTML += "<li class='non_cliccato'>" + "</li>"; 
+}
+  
+
+randomInt = Math.floor(Math.random() * 16);
+let bottoni = document.querySelectorAll("li");
+let randomLi = bottoni[randomInt];
+randomLi.onclick = function () {
+   randomLi.style.backgroundImage = "url(immagini/bomb.png)";
+   console.log("Hai perso")
+   span.classList.add("bloccaGioco")
+   fine.style.display = "block"
+   clickCounter++
+   clickCountercliccati.innerHTML = clickCounter
+}
+
+
+for (let i = 0; i <= 15; i++) {
+   if (i !== randomInt) {
+      bottoni[i].onclick = function () {
+         if (this.getAttribute("class") == "non_cliccato") {
+            this.style.backgroundImage = "url(immagini/rainbow.png)"
+            this.setAttribute("class", "cliccato")
+            clickCounter++
+         }
+      }
+   }
+}
+
+
+riavvio.onclick = function () {
+   location.reload()
+}
+
+
+
+});//DOMContentLoaded
+

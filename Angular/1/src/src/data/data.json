@@ -1,0 +1,104 @@
+{
+    "scarpe": [
+        {
+            "id": 1,
+            "nome": "Nike Air Max 90",
+            "taglia": 42,
+            "prezzo": 130.00,
+            "colore": "Bianco/Nero",
+            "disponibile": true,
+            "foto": "1.png",
+            "quantita": 12
+        },
+        {
+            "id": 2,
+            "nome": "Nike Air Force 1",
+            "taglia": 43,
+            "prezzo": 100.00,
+            "colore": "Bianco",
+            "disponibile": true,
+            "foto": "2.png",
+            "quantita": 15
+        },
+        {
+            "id": 3,
+            "nome": "Nike React Infinity Run",
+            "taglia": 44,
+            "prezzo": 160.00,
+            "colore": "Nero",
+            "disponibile": false,
+            "foto": "3.png",
+            "quantita": 0
+        },
+        {
+            "id": 4,
+            "nome": "Nike Pegasus Trail 2",
+            "taglia": 41,
+            "prezzo": 140.00,
+            "colore": "Blu",
+            "disponibile": true,
+            "foto": "4.png",
+            "quantita": 4
+        },
+        {
+            "id": 5,
+            "nome": "Nike ZoomX Vaporfly",
+            "taglia": 45,
+            "prezzo": 250.00,
+            "colore": "Verde",
+            "disponibile": false,
+            "foto": "5.png",
+            "quantita": 0
+        },
+        {
+            "id": 6,
+            "nome": "Nike Blazer Mid '77",
+            "taglia": 42,
+            "prezzo": 110.00,
+            "colore": "Bianco/Rosso",
+            "disponibile": true,
+            "foto": "6.png",
+            "quantita": 9
+        },
+        {
+            "id": 7,
+            "nome": "Nike Air Zoom Pegasus 37",
+            "taglia": 44,
+            "prezzo": 120.00,
+            "colore": "Nero/Grigio",
+            "disponibile": true,
+            "foto": "7.png",
+            "quantita": 9
+        },
+        {
+            "id": 8,
+            "nome": "Nike Air VaporMax",
+            "taglia": 43,
+            "prezzo": 190.00,
+            "colore": "Grigio/Arancione",
+            "disponibile": false,
+            "foto": "8.png",
+            "quantita": 0
+        },
+        {
+            "id": 9,
+            "nome": "Nike Free RN 5.0",
+            "taglia": 41,
+            "prezzo": 100.00,
+            "colore": "Bianco/Blu",
+            "disponibile": true,
+            "foto": "9.png",
+            "quantita": 2
+        },
+        {
+            "id": 10,
+            "nome": "Nike Joyride Run Flyknit",
+            "taglia": 45,
+            "prezzo": 180.00,
+            "colore": "Nero/Blu",
+            "disponibile": true,
+            "foto": "10.png",
+            "quantita": 7
+        }
+    ]
+}

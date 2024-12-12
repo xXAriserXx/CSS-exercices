@@ -1,0 +1,67 @@
+<div class="containerGrande">
+
+<div class="containerCerca">
+  <form (submit)="makeRequest()" class="requestContainer">
+    <input type="text" id="request" name="request" [(ngModel)]="request" autocomplete="off">
+    <label class="cerca" (click)="makeRequest()" for="request"><span class="material-symbols-outlined">search</span></label>
+  </form>
+</div>
+
+<div>
+  <select  name="opzioneScelta" (change)="makeRequest()" [(ngModel)]="opzioneScelta">
+    <option *ngFor="let opzione of numeroOpzioni" value="{{opzione}}">{{opzione}}</option>
+  </select>
+</div>
+
+</div>
+
+
+<div class="containerBrani">
+  <div *ngFor="let brano of dati" class="canzone" (click)="play(brano, brano.icona)">
+    <div class="playPause">
+      <img class="icona" src="{{brano.icona}}" alt="">
+      <img src="{{brano.immagineUrl}}" alt="Album cover of {{ brano.nomeCanzone }}" />
+    </div>
+    <p [ngStyle]="{'color': brano.genere == 'Rock' ? '#f57171': brano.genere == 'Pop' ? '#71f592' : '#718ff5'}" class="brano"> {{ brano.nomeCanzone }}</p>
+    <p class="artista"> {{ brano.artista }}</p>
+    <p class="genere" > {{ brano.genere }}</p>
+  </div>
+  <audio #audio (timeupdate)="aggiornamento()" (loadedmetadata)="caricato()" src=""></audio>
+</div>
+
+<div class="player" *ngIf="inRiproduzione">
+<div class="progressBar" (click)="clickBarra($event)">
+  <div 
+      class="progress" 
+      [ngStyle]="{'background-color': 
+          genereInRiproduzione == 'Rock' ? '#f57171' : 
+          genereInRiproduzione == 'null' ? '#white':
+          genereInRiproduzione == 'Pop' ? '#71f592' : '#718ff5'
+          }" 
+      [style.width.%]="progresso">
+
+    </div>
+
+</div>
+
+<div class="muta" (click)="muta()">Muta</div>
+<p>Volume:</p>
+
+<div id="volume" class="progressBar" (click)="clickVolume($event)">
+  <div 
+      class="progress" 
+      [ngStyle]="{'background-color': 
+          genereInRiproduzione == 'Rock' ? '#f57171' : 
+          genereInRiproduzione == 'null' ? '#white':
+          genereInRiproduzione == 'Pop' ? '#71f592' : '#718ff5'
+          }" 
+      [style.width.%]="volume">
+
+    </div>
+
+</div>
+</div>
+
+
+
+

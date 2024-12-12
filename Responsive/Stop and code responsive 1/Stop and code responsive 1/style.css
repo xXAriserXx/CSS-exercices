@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+#menu {
+    background-color: #0035a7;
+    height: 100px;
+} 
+
+#menu img {
+    margin-left: 10px;
+    margin-top: 32.5px;
+    height: 35px; 
+    float: left;
+    vertical-align: middle; 
+}
+
+nav {
+    float: right;
+} 
+
+nav ul {
+    padding-left: 0%;
+    margin: 0;
+}
+
+nav ul li {
+    margin-top: 25px;
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    background-color: #ffa400;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    color: #0035a7;
+}
+
+
+#box1 {
+    width: 100%;
+    background-color: #cccccc;
+    margin: 3.5% 0 3.5% 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    border: 1px solid transparent;
+}
+
+#box2 {
+    width: 100%;
+    background-color: #fcebd8;
+    border: 1px solid transparent;
+    margin-bottom: 3.5%;
+}
+
+#box3 {
+    width: 100%;
+    background-color: #ffc6c9;
+    border: 1px solid transparent;
+    margin-bottom: 3.5%;
+
+}
+
+#box2 h3 {
+    text-align: center;
+}
+
+#box3 h3 {
+    text-align: center;
+}
+
+#box2 img {
+    width: 96%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 2.5%;  
+} 
+
+#box3 img {
+    width: 96%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 2.5%;
+}
+
+footer {
+    height: 100px;
+    background-color: green;
+}
+
+footer h4 {
+    text-align: center;
+    line-height: 100px;
+    margin: 0;
+    font-weight: lighter;
+}
+
+@media screen and (min-width: 600px) {
+    
+    #box1 {
+        width: 100%;
+        margin: 25px 0 25px 0;
+    }
+    
+    #box2 {
+        width: 49%;
+        margin-bottom: 25px;
+        float: left;
+    }
+    
+    #box3 {
+        margin-bottom: 25px;
+        float: right;
+        width: 49%;
+    
+    }
+    
+    footer {
+        clear: both;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    
+    #box1 {
+        width: 47%;
+        margin: 25px 0 25px 0;
+        float: left;
+        margin-left: 26.5%;
+        height: 50vw;
+    }
+    
+    #box2 {
+        width: 25%;
+        border: 1px solid transparent;
+        margin-bottom: 25px;
+        float: left;
+        margin-left: -73.5%;
+        margin-top: 25px;
+        height: 50vw;
+    }
+    
+    #box3 {
+        width: 25%;
+        border: 1px solid transparent;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        float: right;
+        height: 50vw;
+    }
+}

@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {  
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: #1f1f1f;
+    margin: 0 auto;
+}
+
+
+#logo {
+    padding: 2% 0;
+    background-image: url(immagini/wallpaper-grey-simple-4k.jpg);
+    background-position: center;
+}
+
+#logo img {
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 4em;
+    display: block;
+    text-align: center;
+    color: white;
+    margin: 0;
+    margin-top: 2vh;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    font-size: 1.5em;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: block;
+    list-style: none;
+    float: left;
+    width: 20%;
+    background-color: #fa4c0c;
+    position: relative;
+}
+
+nav ul li a {
+    padding: 10%;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s
+}
+
+nav ul li:hover > a{
+    background-color: #e83e00;
+    color: rgb(44, 44, 44);
+}
+
+nav ul ul {
+    display: none;
+    width: 100%;
+}
+
+nav ul ul li {
+    width: 100%;
+}
+
+nav ul li:hover ul{
+    display: block;
+    position: absolute;
+}
+
+article h2 {
+    color: #fa4b0c;
+}
+
+article:first-of-type{
+    margin: 6% auto;
+    width: 95%;
+    border: black solid 0px;
+    overflow: auto;
+    background-color: rgb(44, 44, 44);
+    padding: 1.5% 3.5%;
+    float: left;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    color: white;
+}
+
+.imgSX {
+    width: 20%;
+    height: 20%;
+    border-radius: 5%;
+    border: #fa4c0c dashed 7px;
+    float: left;
+    margin-right: 5%;
+}
+
+article p {
+    margin-top: 1%;
+    font-size: 1.25em;
+}
+
+article:nth-of-type(2){
+    margin: 0 auto;
+    width: 95%;
+    border: black solid 0px;
+    overflow: auto;
+    background-color: rgb(211, 211, 211);
+    padding: 1.5% 3.5%;
+    float: right;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    margin-bottom: 15vh;
+}
+
+article:nth-of-type(2) h2{
+    text-align: right;
+}
+
+article:nth-of-type(2) p {
+    margin-top: 1%;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.imgDX {
+    width: 20%;
+    height: 20%;
+    border-radius: 5%;
+    border:  #fa4c0c dashed 7px;
+    float: right;
+    margin-left: 5%;
+}
+
+aside {
+    clear: both;
+    height: 55vh;
+    width: 90%;
+    margin: 0 auto;
+}
+
+aside h3 {
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    margin-bottom: 8.7vh;
+}
+
+aside ul li{
+    float: left;
+    width: 20vw;
+    height: 40vh;
+    list-style: none;
+    margin: 0 0.5vw;
+    border-radius: 5%;
+    margin-bottom: 30vh;
+}
+
+aside ul li a {
+    display: block;
+    padding-top: 41vh;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    transition: 0.2;
+}
+
+aside ul .uno {
+    background-image: url(immagini/html5.png);
+    background-size: 104%;
+    background-repeat: no-repeat;  
+    transition: 0.2s
+}
+
+aside ul .due {
+    background-image: url(immagini/java.png);
+    background-size: 104%;
+    background-repeat: no-repeat;  
+    transition: 0.2s
+}
+
+aside ul .tre {
+    background-image: url(immagini/javascript.png);
+    background-size: 104%;
+    background-repeat: no-repeat;  
+    transition: 0.2s
+}
+
+aside ul .quattro {
+    background-image: url(immagini/responsive.png);
+    background-size: 104%;
+    background-repeat: no-repeat;  
+    transition: 0.2s
+}
+
+aside ul li:hover {
+    background-color: #fa4c0c;  
+    background-size: 106%;  
+    background-repeat: no-repeat;  
+    color:#fa4b0c
+}
+
+aside ul li:hover a {
+    color: #fa4b0c;
+}
+
+#modulo {
+    color: white;
+    text-align: center;
+    margin-top: 15vh;
+}
+
+#modulo h2 {
+    font-size: 4.5em;
+    text-align: center;
+    margin-bottom: 1.7vh;
+}
+
+#modulo li {
+    list-style: none;
+}
+
+#modulo div {
+    margin: 0 auto;
+}
+
+form {
+    width: 25vw;
+    height: 40vh;
+    display: inline-block;
+    text-align: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-image: url(immagini/wallpaper-grey-simple-4k.jpg);
+    background-size: cover;
+    padding-top: 2vh;
+    font-weight: bold;
+    margin-top: 3vh;
+}
+
+form ul {
+    padding-left: 0;
+}
+
+label {
+    display: block;
+    font-size: 1.2em;
+}
+
+.uno input, .due input {
+    font-size: 1.25em;
+    border-radius: 5px;
+    margin: 2% auto;
+    border-radius: 5px;
+    width: 15vw;
+    border-radius: 100px;
+    height: 2vw;
+    padding: 2%;
+}
+
+textarea {
+    border-radius: 20px;
+    width: 15vw;
+    height: 5vw;
+    margin: 2% auto;
+    padding: 2%;
+    font-size: 1.25em;
+}
+
+.quattro input {
+    width: 12vw;
+    height: 5vh;
+    background-color: #fa4b0c;
+    border-radius: 50px;
+    font-size: 1.25em;
+    color: white;
+
+}
+
+footer {
+    text-align: center;
+    padding: 0;
+    height: 30vh;
+    z-index: 0;
+}
+
+footer section {
+    background-color: #fa4b0c;
+    height: 30vh;
+}
+
+footer ul {
+    padding-top: 12vh;
+    padding-left: 0;
+    margin: 0
+}
+
+footer li {
+    list-style-type: none;
+    color: white;
+}
+
+footer li a {
+    color: rgb(44, 44, 44);
+}
+

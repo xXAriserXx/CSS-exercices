@@ -1,0 +1,39 @@
+/*
+Soluzione: 
+1-dichiarare gli span delle due carte, il bottone, l'h2
+2-creare una funzione che si attiva quando clicco il bottone
+*/
+
+let cartaSinistra = document.querySelector("#you span")
+let cartaDestra = document.querySelector("#cpu span")
+let risultato = document.querySelector("h2")
+let bottone = document.getElementById("gioca")
+let counterVittorie = 0
+let counterSconfitte = 0
+let counterPareggi = 0
+let vittorie = document.getElementById("vittorie")
+let sconfitte = document.getElementById("sconfitte")
+let pareggi = document.getElementById("pareggi")
+
+
+bottone.onclick = function () {
+    let randomInt1 = Math.floor(Math.random()*10 +1)
+    let randomInt2 = Math.floor(Math.random()*10 +1)
+    cartaSinistra.innerHTML = randomInt1
+    cartaDestra.innerHTML = randomInt2
+
+    if (randomInt1>randomInt2) {
+        risultato.innerHTML = "Congratulazioni hai vinto"
+        counterVittorie++
+        vittorie.innerHTML = counterVittorie
+
+    }else if (randomInt1<randomInt2) {
+        risultato.innerHTML = "Congratulazioni hai perso"
+        counterSconfitte++
+        sconfitte.innerHTML = counterSconfitte
+    }else {
+        risultato.innerHTML = "Congratulazioni hai pareggiato"
+        counterPareggi++
+        pareggi.innerHTML =counterPareggi
+    }
+}

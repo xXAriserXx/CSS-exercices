@@ -1,0 +1,136 @@
+const inputCitta = document.getElementById("citta");
+const selectNazione = document.getElementById("select");
+const button = document.getElementById("invia");
+const xhr = new XMLHttpRequest();
+const reset = document.getElementById("reset");
+let testoAlert = document.querySelector(".testo-alert");
+const alertBox = document.getElementById("alertBox");
+elencaNazioni();
+
+reset.addEventListener("click", () => {
+    document.getElementById("Container").innerHTML = "";
+})
+
+button.addEventListener("click", () => {
+    vediTempo();
+})
+
+function elencaNazioni () {
+
+    xhr.onreadystatechange = () => {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            const nazioniObj = JSON.parse(xhr.responseText);
+            
+            const arrayNazioni = Object.values(nazioniObj); // nazioniObj era un oggetto quindi per poter lavorare meglio con i valori che conteneva l'ho dovuto convertire in un array
+            let template = '';
+            
+            for (let nazione of arrayNazioni) { //Alcune nazioni non avevano certe proprieta' quindi ho dovuto fare diversi if statement
+
+                if (nazione.english_country_name == undefined) {
+                template += 
+                `
+                <option value="${nazione.iso3361_2_characters}" >${nazione.italian_country_name_2}</option> 
+                `;
+                }
+                else if (nazione.italian_country_name_1 == undefined) {
+                template += 
+                `
+                <option value="${nazione.iso3361_2_characters}" >${nazione.english_country_name.toUpperCase()}</option> 
+                `;
+                } 
+                else {
+                template += 
+                `
+                <option value="${nazione.iso3361_2_characters}" >${nazione.italian_country_name_1}</option> 
+                `;
+                }
+            }
+            selectNazione.innerHTML += template;
+        }
+    }
+
+    xhr.open("GET", "../countries.json");
+
+    xhr.send()
+}
+
+function vediTempo () {
+    xhr.onreadystatechange = () => {
+        if (xhr.status === 200 && xhr.readyState === 4) {
+            const nazione = JSON.parse(xhr.responseText);
+
+            let valoreSituazione = nazione.weather[0].description;
+            let valoreVento = nazione.wind.speed;
+            let valorePressione = nazione.main.pressure;
+            let valoreTempMax = nazione.main.temp_max;
+            let valoreTempMin = nazione.main.temp_min;
+            let valoreUmidita = nazione.main.humidity;
+            let paeseDellaCitta = nazione.sys.country;
+
+            document.getElementById("Container").innerHTML = "";
+            let template = '';
+            template = `
+                    <h2 class="text-center">Situazione Meteo: ${inputCitta.value} - ${paeseDellaCitta}</h2>
+                    <table class="mx-auto table">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Situazione: </th>
+                            <td scope="row">${valoreSituazione}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Vento: </th>
+                            <td scope="row">${valoreVento} m/s</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Pressione: </th>
+                            <td scope="row">${valorePressione} bar</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Temperatura: </th>
+                            <td scope="row">min: ${kelvinCelsius(valoreTempMin).toString().slice(0, 4)}C° - max: ${kelvinCelsius(valoreTempMax).toString().slice(0, 4)}C°</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Umidita': </th>
+                            <td scope="row">${valoreUmidita}%</td>
+                        </tr>
+                        </tbody>
+                    </table> 
+            `
+            document.getElementById("Container").innerHTML += template;
+        } else if (xhr.readyState === 4) {
+            alertBox.style.display = "block";
+            gestioneErrori(xhr.status);
+        }
+    }
+    xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${inputCitta.value},${selectNazione.value}&appid=3d8aa45f7271f6bcb67cba7a6b0896d7`);
+    xhr.send()
+}
+
+function kelvinCelsius (value) {
+    return value - 273.15;
+}
+
+function gestioneErrori (valoreStato) {
+    switch (valoreStato) {
+        case 404: 
+            testoAlert.innerHTML = `Errore: ${valoreStato}, file non trovato`
+            break;
+        case 401:
+            testoAlert.innerHTML = `Errore: ${valoreStato}, chiave API non valida`
+            break;
+        case 400:
+            testoAlert.innerHTML = `Errore: ${valoreStato}, richiesta non valida`
+            break;
+        case 500:
+            testoAlert.innerHTML = `Errore: ${valoreStato}, problemi con il server`
+            break;
+    
+        default:
+            testoAlert.innerHTML = `Errore: ${valoreStato}`
+            break;
+    }
+}
+
+
+
+

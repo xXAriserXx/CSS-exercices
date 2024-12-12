@@ -1,0 +1,4 @@
+<div [ngStyle]="{'background-color': type === 'Successo' ? 'rgba(20, 231, 115, 0.536)' : (type === 'Errore' ? 'rgba(255, 0, 0, 0.536)' : 'white')}" class="container-message">
+    <div *ngIf="!(message)" class="message">Aggiungi/rimuovi dalla coda</div>
+    <div *ngIf="message" class="message">{{type}}: {{message}}</div>
+</div>

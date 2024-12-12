@@ -1,0 +1,68 @@
+{
+    "orders": [
+        {
+        "id": 1,
+        "productName": "Laptop",
+        "quantity": 15,
+        "unitPrice": 1200.99
+        },
+        {
+        "id": 2,
+        "productName": "Smartphone",
+        "quantity": 30,
+        "unitPrice": 799.49
+        },
+        {
+        "id": 3,
+        "productName": "Cuffie Bluetooth",
+        "quantity": 50,
+        "unitPrice": 59.99
+        },
+        {
+        "id": 4,
+        "productName": "Monitor",
+        "quantity": 20,
+        "unitPrice": 249.99
+        },
+        {
+        "id": 5,
+        "productName": "Tastiera Meccanica",
+        "quantity": 40,
+        "unitPrice": 89.99
+        },
+        {
+        "id": 6,
+        "productName": "Mouse Gaming",
+        "quantity": 60,
+        "unitPrice": 39.99
+        },
+        {
+        "id": 7,
+        "productName": "Sedia da Gaming",
+        "quantity": 10,
+        "unitPrice": 159.99
+        },
+        {
+        "id": 8,
+        "productName": "Stampante",
+        "quantity": 25,
+        "unitPrice": 99.99
+        },
+        {
+        "id": 9,
+        "productName": "Webcam",
+        "quantity": 35,
+        "unitPrice": 49.99
+        },
+        {
+        "id": 10,
+        "productName": "Router WiFi",
+        "quantity": 45,
+        "unitPrice": 69.99
+        }
+            
+    ]
+  }
+  
+  
+

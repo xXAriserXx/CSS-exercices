@@ -1,0 +1,181 @@
+body {
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #8785A2;
+    background-color: #f0f0f0;
+}
+
+.section {
+    height: 200px;
+    background-color: #8785A2;
+}
+
+main {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    align-items: center; 
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr;
+    grid-template-areas: 
+    ". disponibile . prenotato .";
+
+    box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.5),
+                inset 0 -5px 5px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.disponibile {
+    align-self: flex-start;
+    grid-area: disponibile;
+    .tableSection {
+        grid-template-areas: 
+        "tipologia prezzo"
+        "descrizione bottone";
+    }
+}
+
+.prenotato {
+    grid-area: prenotato;
+    align-self: flex-start;
+    .tableSection {
+        grid-template-areas: 
+        "tipologia prezzo"
+        "descrizione bottone";
+    }
+}
+
+
+.table {
+    height: max-content;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #8785A2;
+    border-radius: 15px;
+    margin-left: auto; 
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1em;
+    .tableSection {
+        display: grid;
+        background-color: #FFE2E2;
+        grid-template-columns: 3fr 1fr; 
+        border-radius: 15px;
+        padding: 10px;
+        .tipologia {
+            grid-area: tipologia;
+            margin: 5px;
+        } 
+        .descrizione {
+            color: rgb(107, 107, 107);
+            grid-area: descrizione;
+            margin: 5px;
+        }
+        .prezzo {
+            grid-area: prezzo;
+            margin: 5px;
+            width: fit-content;
+            justify-self: end;
+        }
+        button {
+            color: #8785A2;
+            height: 30px;
+            width: fit-content;
+            grid-area: bottone;
+            border-radius: 10px; 
+            border: none;
+            align-self: flex-end;
+            justify-self: end;
+            cursor: pointer;
+            border: 2px solid white; 
+            &:hover {
+                background-color: #FFC7C7;
+            }
+            &:disabled {
+                background-color: #d6bdbd;
+                color: #c99c9c;
+                border: 2px solid gray;
+            }
+        }
+
+    }
+}
+
+.prezzoTot {
+    color: #8785A2;
+    grid-area: prezzoTot;
+}
+
+.conferma {
+    height: 50px;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+    background-color: #FFE2E2;
+    color: #8785A2;
+    width: fit-content;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 2px solid white; 
+    &:hover {
+        background-color: #FFC7C7;
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.283);
+    backdrop-filter: blur(5px);
+    align-items: center; 
+    justify-content: center;
+    div {
+    height: fit-content;     
+    padding: 15px;
+    background-color: #FFE2E2;
+    border-radius: 15px;
+    div {
+        padding: 5px;
+        margin: 5px;
+        border-bottom: 2px solid #FFC7C7;
+        border-radius: 0;
+        p {
+            margin: 5px;
+        }
+    }
+    .prezzoFinale {
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+    }
+}
+
+.wrapperButtons {
+    display: flex;
+    justify-content: center;
+    button {
+        margin: 10px;
+    }
+}
+
+
+@media (max-width:1200px) {
+    main {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas: 
+        ". disponibile ."
+        ". prenotato."
+    } 
+}

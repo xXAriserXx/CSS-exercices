@@ -1,0 +1,4 @@
+blu #2d57a4
+blu sottomenu #5071af
+giallo #f7d100
+arancio #e8514e

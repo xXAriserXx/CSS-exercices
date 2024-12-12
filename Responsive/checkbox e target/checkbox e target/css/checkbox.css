@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1em;
+    position: relative;
+}
+
+.button {
+    background-color: white;
+    border: 3px solid rgb(192, 192, 192);
+    color: rgb(213, 213, 213);
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 2em;
+    border-radius: 10px;
+    transition: 0.3s;
+    position: absolute;
+    top: 40px;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.button:hover {
+    background-color: rgb(244, 244, 244);
+    color: rgb(14, 146, 190);
+}
+
+h2 {
+    font-family: sans-serif;
+    color: rgb(14, 146, 190);
+    font-size: 2em;
+}
+
+#tipo {
+    display: none;
+    position: absolute;
+    top: -9vh;
+}
+
+#popup {
+    display: none;
+}
+
+body > label{
+    border: 1px solid rgb(14, 146, 190);
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    font-family: sans-serif;
+    font-weight: lighter;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+body > label:hover {
+    background-color: rgb(244, 244, 244);
+    color: rgb(14, 146, 190);
+}
+
+div {
+    width: 100%;
+    height: fit-content;
+    max-width: 640px;
+    background: black;
+    display: none;
+    z-index: 0;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+div label {
+    background-image: url(../media/multiply.png);
+    height: 32px;
+    width: 32px;
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+#popup:checked ~ div > label, #popup:checked ~ div > #tipo{
+    display: block;
+}
+
+#popup:checked ~ div {
+    display: flex;
+}
+
+#popup:checked ~ label, #popup:checked ~ h2, #popup:checked ~ a {
+    display: none;
+}
+
+
+
+
+
